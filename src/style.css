@@ -1,0 +1,59 @@
+p{
+    text-align: center;
+    font-size: larger;
+}
+h1{
+    text-align: center;
+    
+}
+
+.navBar{
+    display: flex;
+    justify-content: space-around;
+    background-color: red;
+    margin-top: -10px;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding: 15px;
+}
+.link{
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.singleMonCont{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: .5%;
+    width: 450px;
+    height: 550px;
+    justify-content: space-evenly;
+    border-radius: 8px;
+    background: #fbfbfb;
+    margin-bottom: .5%;
+    box-shadow: 1px 2px 8px rgb(0 0 0 / 65%);
+}
+
+.bigMonCont{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.button{
+    border: none;
+    cursor: pointer;
+    appearance: none;
+    background-color: inherit;
+}
+
+.pokeballPic{
+    width: 70px;
+    height: 70px;
+}
+.pCont{
+    border: 1px solid black;
+}
