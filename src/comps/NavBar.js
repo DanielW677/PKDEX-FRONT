@@ -14,7 +14,7 @@ const NavBar = () => {
         <nav className='navBar'>
             <Link to={'/'} className='link'>Homepage</Link>
             <Link to={'/pokemon'} className='link'>Pokemon</Link>
-            <Link to={'/profile'} className='link'>Profile</Link>
+            <Link to={'/profile'} className='link'>Pokedex</Link>
             <Link to={'/login'} className='link'>Login</Link>
             <Link className='link' onClick={() => {logOut()}}>Logout</Link>
         </nav>

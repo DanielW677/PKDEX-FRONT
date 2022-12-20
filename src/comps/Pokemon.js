@@ -14,10 +14,10 @@ const Pokemon = () => {
             }
         })
         console.log(getMon)
-        // if(getMon){
-        //     alert("Congragulations on the new shiny pokemon!")
-        //     navigate('/profile')
-        // }
+        if(getMon.status === 200){
+            alert("Congragulations on the new shiny pokemon!")
+            navigate('/profile')
+        }
     }
 
     console.log(newPokemon)
