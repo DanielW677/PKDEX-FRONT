@@ -34,6 +34,7 @@ const Login = () => {
     }
     return(
         <div>
+            <h1>Welcome Back!</h1>
             <form onSubmit={logIn}>
                 <div>
                     <label>Username:</label>
@@ -52,6 +53,9 @@ const Login = () => {
                     <button type='submit'>Login</button>
                 </div>
             </form>
+            <div>
+                <Link to={'/register'} className='link'>New account?</Link>
+            </div>
         </div>
     )
 }

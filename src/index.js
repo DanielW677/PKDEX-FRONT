@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider, useNavigate } from 'react-router-dom';
 import {Outlet} from 'react-router'
 import {useState, useEffect} from 'react'
-import {Homepage, ErrorPage, NavBar, Pokemon, Profile, Login} from './comps/index'
+import {Homepage, ErrorPage, NavBar, Pokemon, Profile, Login, Register} from './comps/index'
 import "./style.css"
 const App = () => {
     const [newPokemon, setNewPokemon] = useState()
@@ -66,6 +66,10 @@ const route = createBrowserRouter([
             {
                 path: "/login",
                 element: <Login/>
+            },
+            {
+                path: "/register",
+                element: <Register />
             }
         ]
     }
