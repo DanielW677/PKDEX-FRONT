@@ -20,7 +20,7 @@ const Pokemon = () => {
         }
     }
 
-    console.log(newPokemon)
+    // console.log(newPokemon)
     return(
         <div className="bigMonCont">{
             newPokemon && newPokemon.length ? newPokemon.map((indivMon,idx) => {

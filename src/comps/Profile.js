@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react"
-import { useOutletContext } from "react-router-dom"
+import { useOutletContext, useNavigate } from "react-router-dom"
 
 const Profile = () => {
     const {user} = useOutletContext()
     const [mons, setMons] = useState()
+    const photo = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6eFtu__i6LBRXCwM-qwR19S4ePhicmljLDg&usqp=CAU'
     // console.log(user)
+    const [natPokeId, setNatPokeId] = useState()
+    const navigate = useNavigate()
     useEffect(() => {
         async function checkMons(){
             const monFet = await fetch(`https://pkdex.onrender.com/api/pokedex/viewmons`, {
@@ -21,6 +24,29 @@ const Profile = () => {
         }
         checkMons()
     }, [])
+
+    async function deleteMon(event){
+        event.preventDefault()
+        try {
+        const delFet = await fetch(`https://pkdex.onrender.com/api/pokedex/delete/${natPokeId}`, {
+            method: "DELETE",
+            headers: {
+                'Content-Type': 'applicaion/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            }
+        })
+        console.log(delFet)
+        if(delFet.status === 200){
+            alert('Pokemon Removed')
+            navigate('/')
+        }else{
+            alert('Failed to remove pokemon')
+            navigate('/')
+        }
+        } catch (error) {
+            console.log(error)
+        }
+    }
    {
     return(
         user && user.username ? 
@@ -36,6 +62,13 @@ const Profile = () => {
                         <div>
                             <img src={pokemon.ShinyPhoto}></img>
                             <p> Paldea Dex Num: {pokemon.pokemonId}</p>
+                        <form onSubmit={deleteMon}>
+                            <div className="buttonCont">
+                                <button className="button" type="submit" onClick={() => {setNatPokeId(pokemon.natId)}}>
+                                    <img className="pokeballPic" src={photo} alt="Remove"></img>
+                                </button>
+                            </div>
+                        </form>
                         </div>
                     </div>
                 </div>

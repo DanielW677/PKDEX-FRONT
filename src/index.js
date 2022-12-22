@@ -29,7 +29,7 @@ const App = () => {
                 }
             })
             const userGet = await userFetch.json()
-            console.log(userGet)
+            // console.log(userGet)
             setUser(userGet)
         }
 

@@ -3,7 +3,7 @@ import { useOutletContext } from "react-router"
 
 const Homepage = () => {
     const {user} = useOutletContext()
-    console.log(user)
+    // console.log(user)
     return(
         <div>
             <h1>Welcome to Shiny Pokedex TrackR</h1>
