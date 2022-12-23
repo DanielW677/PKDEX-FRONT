@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useOutletContext, useNavigate } from "react-router-dom"
-
+import { Link } from "react-router-dom"
 const Profile = () => {
     const {user} = useOutletContext()
     const [mons, setMons] = useState()
@@ -52,7 +52,9 @@ const Profile = () => {
         user && user.username ? 
         <div>
             <h1>This is your Pokedex {user.username}</h1>
-            {user.isAdmin ? <button>ADMIN PAGE</button>: "" }
+            {user.isAdmin ? <button className="adminButton">
+                    <Link className="link" to={'/admin'}>Admin Page</Link>
+                </button>: "" }
             {mons && mons.length ? mons.map((pokemon, idx) => {
                 return(
                 <div key={idx} className='bigMonCont'>
