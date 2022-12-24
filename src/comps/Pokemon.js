@@ -1,7 +1,7 @@
 import { useOutletContext, useNavigate } from "react-router-dom"
-import {useState } from 'react'
+import {useEffect, useState } from 'react'
 const Pokemon = () => {
-    const {newPokemon} = useOutletContext()
+    const {newPokemon, setNewPokemon} = useOutletContext()
     const [pokemonId, setPokemonId] = useState()
     const navigate = useNavigate()
     async function addMon(event){
@@ -19,7 +19,17 @@ const Pokemon = () => {
             navigate('/profile')
         }
     }
-
+    useEffect(() => {
+    async function sortMons(){
+        const data = await [...newPokemon]
+       console.log('testing', data)
+        data.sort((a,b) => (a.DexId - b.DexId))
+        console.log('sorted', data)
+        setNewPokemon(data)
+    }
+    sortMons()
+    }, [])
+    
     // console.log(newPokemon)
     return(
         <div>
