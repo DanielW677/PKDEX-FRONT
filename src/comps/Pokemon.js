@@ -22,6 +22,7 @@ const Pokemon = () => {
 
     // console.log(newPokemon)
     return(
+        <div>
         <div className="bigMonCont">{
             newPokemon && newPokemon.length ? newPokemon.map((indivMon,idx) => {
                 return(
@@ -47,6 +48,7 @@ const Pokemon = () => {
             
             
         }</div>
+        </div>
     )
 }
 

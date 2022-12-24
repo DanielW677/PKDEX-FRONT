@@ -17,10 +17,13 @@ const Profile = () => {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`
                 }
             })
-            // console.log(monFet)
+            // console.log(monFet)s
             const myMons = await monFet.json()
             // console.log(myMons)
-            setMons(myMons.mons)
+            const mySortedMons = await myMons.mons
+                .sort((a, b) => (a.DexId - b.DexId))
+            console.log('sort', mySortedMons)
+            setMons(mySortedMons)
         }
         checkMons()
     }, [])
@@ -50,14 +53,10 @@ const Profile = () => {
    {
     return(
         user && user.username ? 
-        <div>
-            <h1>This is your Pokedex {user.username}</h1>
-            {user.isAdmin ? <button className="adminButton">
-                    <Link className="link" to={'/admin'}>Admin Page</Link>
-                </button>: "" }
+        <div className="bigMonCont">
             {mons && mons.length ? mons.map((pokemon, idx) => {
                 return(
-                <div key={idx} className='bigMonCont'>
+                <div key={idx}>
                         <div className="singleMonCont">
                             <p> National Dex ID: {pokemon.DexId}</p>
                             <p>{pokemon.PKName} </p>
