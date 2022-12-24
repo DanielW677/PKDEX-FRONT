@@ -1,10 +1,30 @@
 import { useOutletContext } from "react-router"
-
+import { useState } from "react"
+import { useNavigate } from "react-router"
 const DeleteMon = () => {
-    const {newPokemon} = useOutletContext()
+    const {setNewPokemon, newPokemon} = useOutletContext()
+    const [pokemonId, setPokemonId] = useState()
     // console.log('new', newPokemon)
-    async function delMon(){
-        const fetch = await fetch('')
+    const navigate = useNavigate()
+    async function delMon(event){
+        event.preventDefault()
+       const delFet = await fetch(`https://pkdex.onrender.com/api/pokemon/deletemon/${pokemonId}`, {
+        method: "DELETE",
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+       })
+       console.log(delFet)
+       if(delFet){
+        async function getMons(){
+            const monFet = await fetch(`https://pkdex.onrender.com/api/pokemon`)
+            setNewPokemon(monFet)
+        }
+        getMons()
+        alert("Pokemon Deleted")
+        navigate('/pokemon')
+       }
     }
     return(
         <div className="bigMonCont">{
@@ -19,8 +39,8 @@ const DeleteMon = () => {
                             <img src={indivMon.photo}></img>
                             <p>{indivMon.type}</p>
                         </div>
-                        <form>
-                            <button>Delete</button>
+                        <form onSubmit={delMon}>
+                            <button onClick={() => {setPokemonId(indivMon.DexId)}}>Delete</button>
                         </form>
                     </div>
                 )
