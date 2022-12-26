@@ -35,26 +35,28 @@ const Login = () => {
     return(
         <div>
             <h1>Welcome Back!</h1>
-            <form onSubmit={logIn}>
+            <form onSubmit={logIn} className='mb-3'>
                 <div>
-                    <label>Username:</label>
-                    <input type='text' value={username} onChange={(event) => {
+                    <label className='form-label'>Username:</label>
+                    <input type='text' className='form-control' value={username} onChange={(event) => {
                         console.log(event.target.value)
                         setUsername(event.target.value)
                     }}></input>
                 </div>
                 <div>
-                    <label>Password:</label>
-                    <input type='password' value={password} onChange={(event) => {
+                    <label className='form-label'>Password:</label>
+                    <input type='password' className='form-control' value={password} onChange={(event) => {
                         setPassword(event.target.value)
                     }}></input>
                 </div>
-                <div>
-                    <button type='submit'>Login</button>
+                <div className='d-grid gap-2 col-6 mx-auto'>
+                    <button className='btn btn-primary' type='submit'>Login</button>
                 </div>
             </form>
-            <div>
-                <Link to={'/register'} className='link'>New account?</Link>
+            <div className='d-grid gap-2 col-6 mx-auto'>
+                <button className='btn'>
+                    <Link to={'/register'} className='link'>New account?</Link>
+                </button>
             </div>
         </div>
     )

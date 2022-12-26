@@ -66,7 +66,9 @@ const Profile = () => {
                         <form onSubmit={deleteMon}>
                             <div className="buttonCont">
                                 <button className="button" type="submit" onClick={() => {setNatPokeId(pokemon.natId)}}>
-                                    <img className="pokeballPic" src={photo} alt="Remove"></img>
+                                    <button className="btn btn-danger">
+                                        <i className="bi bi-trash"></i>
+                                    </button>
                                 </button>
                             </div>
                         </form>

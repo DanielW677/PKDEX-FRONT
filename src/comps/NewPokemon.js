@@ -32,26 +32,26 @@ const NewMon = () => {
             }
             getMonsAgain()
             alert('Created Pokemon')
-            navigate('/pokemon')
+            navigate('/newpokemon')
         }
     }
     return(
         <div>
-            <form onSubmit={newPoke}>
-                <label>PokeName:</label>
-                <input type='text' value={PKName} onChange={(event) => {setPKName(event.target.value)}}></input>
+            <form onSubmit={newPoke} className='mb-3'>
+                <label className="form-label">PokeName:</label>
+                <input type='text' className="form-control" value={PKName} onChange={(event) => {setPKName(event.target.value)}}></input>
                 <br></br>
-                <label>Type:</label>
-                <input type={'text'} value={type} onChange={(event) => {setType(event.target.value)}}></input>
+                <label className="form-label">Type:</label>
+                <input type={'text'} className='form-control' value={type} onChange={(event) => {setType(event.target.value)}}></input>
                 <br></br>
-                <label>Photo:</label>
-                <input type={'text'} value={photo} onChange={(event) => {setPhoto(event.target.value)}}></input>
+                <label className="form-label">Photo:</label>
+                <input type={'text'} className='form-control' value={photo} onChange={(event) => {setPhoto(event.target.value)}}></input>
                 <br></br>
-                <label>ShinyPhoto:</label>
-                <input type={'text'} value={ShinyPhoto} onChange={(event) => {setShinyPhoto(event.target.value)}}></input>
+                <label className="form-label">ShinyPhoto:</label>
+                <input type={'text'} className='form-control' value={ShinyPhoto} onChange={(event) => {setShinyPhoto(event.target.value)}}></input>
                 <br></br>
-                <label>DexId:</label>
-                <input type='text' value={DexId} onChange={(event) => {setDexId(event.target.value)}}></input>
+                <label className="form-label">DexId:</label>
+                <input type='text' className="form-control" value={DexId} onChange={(event) => {setDexId(event.target.value)}}></input>
                 <input type={'submit'}></input>
             </form>
         </div>

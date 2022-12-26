@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.css';
 import ReactDOM from 'react-dom'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider, useNavigate } from 'react-router-dom';
@@ -5,6 +6,7 @@ import {Outlet} from 'react-router'
 import {useState, useEffect} from 'react'
 import {Homepage, ErrorPage, NavBar, Pokemon, Profile, Login, Register, AdminPage, NewMon, UpdateMon, DeleteMon} from './comps/index'
 import "./style.css"
+
 const App = () => {
     const [newPokemon, setNewPokemon] = useState()
     const [user, setUser] = useState()

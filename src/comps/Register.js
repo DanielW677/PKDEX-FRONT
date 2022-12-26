@@ -34,17 +34,17 @@ const Register = () => {
     return(
         <div>
             <h1>Create a new Account Here!</h1>
-            <form onSubmit={registerForm}>
+            <form onSubmit={registerForm} className='mb-3'>
                 <div>
-                    <label>Username:</label>
-                    <input type='text' value={username} onChange={(event) => {setUsername(event.target.value)}}></input>
+                    <label className='form-label'>Username:</label>
+                    <input type='text' className='form-control' value={username} onChange={(event) => {setUsername(event.target.value)}}></input>
                 </div>
                 <div>
-                    <label>Password:</label>
-                    <input type='password' value={password} onChange={(event) => {setPassword(event.target.value)}} ></input>
+                    <label className='form-label'>Password:</label>
+                    <input type='password' className='form-control' value={password} onChange={(event) => {setPassword(event.target.value)}} ></input>
                 </div>
-                <div>
-                    <button type='submit'>Register</button>
+                <div className='d-grid gap-2 col-6 mx-auto'>
+                    <button type='submit' className='btn btn-primary'>Register</button>
                 </div>
             </form>
         </div>
